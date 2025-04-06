@@ -1,0 +1,1 @@
+gobuster dir -u http://10.10.65.190/spip/ -w /home/neo/Downloads/subdomains-top1million-5000.txt
