@@ -1,0 +1,78 @@
+Linux-Basic-Commands
+
+Curl - Website Content/Information
+
+xfreerdp - Remote Desktop
+
+iptables - Used to set up/maintain firewall filters
+
+example - iptables -I INPUT -p tcp --dport <port> -j REJECT --reject-with tcp-reset
+
+nmap - Port Scan a network or IP path for enumeration
+
+        source - https://nmap.org/book/man-output.html 
+
+source - https://nmap.org/book/man-bypass-firewalls-ids.html
+
+nmap -sS ~ Syn Scan
+
+nmap -sU ~ USP scan
+
+nmap -O ~ operating system the target service running on the target
+
+nmap -sV ~ detect the version of the service running on the target
+
+nmap -V or nmap -vv (to choose level of verbosity) ~ give more word/info
+
+nmap -T<0-5> ~ 0 scans slow accurate 5 fast and inaccurate 
+
+nmap -p 80 ~ scan port 80
+
+nmap -p- ~ scan all ports
+
+TCP Null Scans (-sN)
+TCP FIN Scans (-sF)
+TCP Xmas Scans (-sX)
+
+example - nmap -sU --top-ports 20 <target>
+
+Nmap can be used to enumerate SMB and NFS shares
+
+nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.2.182
+
+nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.2.182
+
+Nmap Scripting Engine (NSE) - scanning for vulnerabilities, to automating exploits for them
+
+        safe:- Won't affect the target
+        intrusive:- Not safe: likely to affect the target
+        vuln:- Scan for vulnerabilities
+        exploit:- Attempt to exploit a vulnerability
+        auth:- Attempt to bypass authentication for running services 
+        brute:- Attempt to bruteforce credentials for running services
+        discovery:- Attempt to query running services for further information about the network 
+
+example - To run a specific script, we would use --script=<script-name>
+
+dirbuster - 
+
+gobuster - gobuster dir -u http://<targetip> -w /usr/share/wordlists/dirb/common.txt - Print out hidden URLS 
+
+getent- - is a common way to look up in user details on linux
+
+uname -a or cat /etc/os-release - versions of linux / ubuntu of system
+
+Sqlite3 - command tool used on kali - used for file dumping
+
+wh0is - Whois essentially allows you to query who a domain name is registered to
+
+dig - 
+
+netcat <ip> <port> - find version and server
+
+strings - Strings is a command on Linux that looks for human readable strings on a binary
+
+sudo -l - check current user can run anything as root
+
+ls -la - provides more directories
+
