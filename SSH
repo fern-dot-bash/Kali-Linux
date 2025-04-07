@@ -1,0 +1,3 @@
+SSH
+
+ssh -i <name_of_key_file> <name>@<targetmachine>
