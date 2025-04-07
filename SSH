@@ -1,3 +1,15 @@
 SSH
 
 ssh -i <name_of_key_file> <name>@<targetmachine>
+
+ssh -i <key-file> <username>@<ip> 
+
+<key-file> would be the id_rsa KEY found
+
+
+
+or 
+
+
+
+ssh <user>@<targetIP> 
