@@ -1,0 +1,43 @@
+Reconnaissance 
+
+gobuster - GoBuster is a tool used to brute-force URIs (directories and files), DNS subdomains and virtual host names. For this machine, we will focus on using it to brute-force directories.
+
+example : gobuster dir -u http://<ip>:3333 -w <word list location>
+
+GoBuster flag Description:
+-e Print the full URLs in your console
+-u The target URL
+-w Path to your wordlist
+-U and -P Username and Password for Basic Auth
+-p <x> Proxy to use for requests
+-c <http cookies> Specify a cookie for simulating your auth
+
+
+
+nmap - Port Scan a network or IP path for enumeration
+
+        source - https://nmap.org/book/man-output.html 
+
+source - https://nmap.org/book/man-bypass-firewalls-ids.html
+
+nmap -sS ~ Syn Scan
+
+nmap -sU ~ USP scan
+
+nmap -o ~ operating system the target service running on the target
+
+nmap -sV ~ detect the version of the service running on the target
+
+nmap -V or nmap -vv (to choose level of verbosity) ~ give more word/info
+
+nmap -T<0-5> ~ 0 scans slow accurate 5 fast and inaccurate 
+
+nmap -p 80 ~ scan port 80
+
+nmap -p- ~ scan all ports
+
+TCP Null Scans (-sN)
+TCP FIN Scans (-sF)
+TCP Xmas Scans (-sX)
+
+example - nmap -sU --top-ports 20 <target>
