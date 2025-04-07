@@ -1,0 +1,15 @@
+Netcat
+
+You can also use Netcat to create a simple command-line messaging server instantly. As in the previous usage example, nc must be installed on both systems used for the chat room.
+
+On one system, run the following command to create the chat server listening on port 5000.
+
+$ nc -l -vv -p 5000
+
+On the other system, run the following command to launch a chat session to a machine where the messaging server is running.
+
+$ nc 192.168.56.1 5000
+
+
+
+nc -lnvp 1337 : to start listening
