@@ -1,0 +1,22 @@
+Burp-Injection-URL
+
+XSS Payloads
+
+Remember, cross-site scripting is a vulnerability that can be exploited to execute malicious Javascript on a victim’s machine. Check out some common payloads types used:
+
+   Popup's (<script>alert(“Hello World”)</script>) - Creates a Hello World message popup on a users browser.
+
+
+   Writing HTML (document.write) - Override the website's HTML to add your own (essentially defacing the entire page).
+
+
+   XSS Keylogger (http://www.xss-payloads.com/payloads/scripts/simplekeylogger.js.html) - You can log all keystrokes of a user, capturing their password and other sensitive information they type into the webpage.
+
+
+   Port scanning (http://www.xss-payloads.com/payloads/scripts/portscanapi.js.html) - A mini local port scanner (more information on this is covered in the TryHackMe XSS room).
+
+
+
+<script>document.querySelector('#thm-title').textContent = 'I am a hacker'</script> - change words on a website
+
+<script>alert(“Hello World”)</script> - print a banner that says hello world - can also print out ip address and document cookies - <script>alert(document.cookie)</script> and <script>alert(window.location.hostname)</script>
