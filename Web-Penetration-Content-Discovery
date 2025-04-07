@@ -1,0 +1,29 @@
+Web-Penetration-Content-Discovery
+
+Note: The robots.txt file is a document that tells search engines which pages they are and aren't allowed to show on their search engine results or ban specific search engines from crawling the website altogether - inserted at the end of the URL
+
+/robots.txt
+
+example - URL - https://machine-ipORsite/robots.txt
+
+Note: The sitemap.xml file gives a list of every file the website owner wishes to be listed on a search engine
+
+/sitemap.xml
+
+example - URL - https://machine-ipORsite/sitemap.xml
+
+Note: The Curl Command line tool that developers use to transfer data to and from a server allows you to receive some type of date of  the service.
+
+curl http://MACHINE_IP -v
+
+Note: ffuf is a content discovery tools
+
+user@machine$ ffuf -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt -u http://MACHINE_IP/FUZZ
+
+Note: dirb is a content discovery tools
+
+user@machine$ dirb http://MACHINE_IP/ /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt
+
+Note: Gobuster is a content discovery tools
+
+user@machine$ gobuster dir --url http://MACHINE_IP/ -w /usr/share/wordlists/SecLists/Discovery/Web-Content/common.txt
