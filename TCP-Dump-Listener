@@ -1,0 +1,17 @@
+TCP-Dump-Listener
+
+Start a tcpdump listener on your local machine:
+
+example:
+
+sudo tcpdump ip proto \\icmp -i tun0
+
+
+
+extra note:
+
+Now, use the command "ping [local THM ip] -c 1" through the telnet session to see if we're able to execute system commands. Do we receive any pings? Note, you need to preface this with .RUN (Y/N)
+
+.RUN ping $ip -c 1 
+
+after running telnet on the victim
