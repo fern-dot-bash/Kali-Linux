@@ -1,0 +1,7 @@
+curl 10.10.10.10/whoami
+
+Download files: Use curl to download files from the internet
+Send HTTP requests: Use curl to send HTTP requests to web servers and get responses
+Upload files: Use curl to upload files to a server
+Test connectivity: Use curl to check network connectivity and server responses
+Test APIs: Use curl to test APIs by sending requests and receiving responsese internet
