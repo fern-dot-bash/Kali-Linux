@@ -1,0 +1,11 @@
+RDP-Linux-To-Windows
+
+Note: Command used to RDP.
+
+xfreerdp /u:user /p:password321 /cert:ignore /v:targetmachineip
+
+above i know the size needs to be figured out how big the display
+
+below is the best rdp for me 
+
+rdesktop -u Administrator -d CONTROLLER 10.10.90.150
