@@ -1,0 +1,5 @@
+VPN-Troubleshooting
+
+sudo killall openvpn
+
+curl 10.10.10.10/whoami
