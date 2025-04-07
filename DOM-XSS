@@ -1,0 +1,11 @@
+DOM-XSS
+
+Perform a DOM XSS attack with:
+
+Note that we are using iframe which is a common HTML element found in many web applications, there are others which also produce the same result.
+
+This type of XSS is also called XFS (Cross-Frame Scripting), is one of the most common forms of detecting XSS within web applications.
+
+Websites that allow the user to modify the iframe or other DOM elements will most likely be vulnerable to XSS. 
+
+ <iframe src="javascript:alert(`xss`)">
