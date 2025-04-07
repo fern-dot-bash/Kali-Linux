@@ -1,0 +1,77 @@
+Ncat-Injection-Command
+
+Command Execution
+
+Ncat can execute an external command after establishing a connection. The command's standard input and output streams are redirected to use Ncat's network connection. Anything received over the connection is given to the command's stdin, and anything the command writes to stdout is sent back out over the connection. This feature makes almost any terminal application accessible over a network (with some caveats).
+
+There are three ways of running a command:
+
+--exec runs a command without shell interpretation.
+--sh-exec runs a command by passing a string to a system shell.
+--lua-exec runs a Lua program using Ncat's built-in Lua interpreter.
+
+
+
+The --exec option (alias -e) takes the full pathname of a command to execute, along with its arguments. The command is executed directly; Ncat does not interpret the given string beyond splitting the command and its arguments. Example 3 shows an example of usage.
+
+Example 3. Running a command with --exec
+
+ncat -l --exec "/bin/echo Hello."
+
+
+ 
+
+The --sh-exec option (-c) works the same as --exec, except that it executes the command by passing it to /bin/sh -c on Unix or cmd.exe /C on Windows. You don't have to use the full pathname of the command if the command is in the PATH. Additionally you have access to shell facilities such as pipelines and environment variable expansion. Example 4 shows a command run with --sh-exec. This server, when connected to, sends back the name of its working directory.
+
+Example 4. Running a command with --sh-exec
+
+ncat -l --sh-exec "echo `pwd`"
+
+
+ 
+
+The --lua-exec option takes the filename of a Lua program to run. Ncat runs the program using its built-in interpreter and redirects its input and output streams. Anything the program writes to standard output (for example with print or io.write) is written to the connection, and any reads from standard input come from the connection. A nice thing about running programs written in Lua is that the same interpreter is used on all platforms, in comparison with shells that operate differently.
+
+That means that the default Ncat build is all you need to run a simple network service. To write a program, the standard text editor (even a Windows "notepad") is enough; to learn how to create programs in Lua, have a look at "Programming in Lua" book available for free at Lua.org website. Example 5 shows how to run a program stored in a file called hello-luaexec.lua. You can find this script - and some other ones - in Nmap's source code package, in ncat/scripts directory - the latest versions of the scripts can be found in the Nmap project public SVN repository. Here are the contents of the hello-luaexec.lua file, if you would prefer to create the file yourself:
+
+--This is a --lua-exec "Hello world" example. In order to send to a client, --all you need to do is output it to the standard output. print("Hello, world!")
+
+Example 5. Running a command with --lua-exec
+
+ncat -l --lua-exec hello-luaexec.lua
+
+
+ 
+
+Now, anyone that connects to our server will see the "Hello, world" message. For a script with a bit more capabilities, have a look at conditional.lua. It shows how to create a simple menu, receive some data from the user repeatedly and react according to her decisions. You might want to start off your experiments with Lua by making changes to this script. Also see the section called “Turn Ncat into a simple web server” for information on how to run a simple HTTP server in Lua.
+
+The exec options can be used in connect mode and listen mode. In listen mode, Ncat accepts one connection, runs the command, and then quits, just like listen mode without exec. But when listen mode is combined with --keep-open, Ncat will accept multiple connections, forking off a new handler for each. This works even in UDP mode; the usual limit of only one client doesn't apply. The server will keep running until you press ctrl+C or otherwise terminate it externally. In this way Ncat can work much like inetd. Many examples of the use of --exec and --sh-exec in listen mode are found in the section called “Emulating Diagnostic Services”.
+
+Example 6. Running an inetd-like server
+
+ncat -l --keep-open --exec "/bin/echo Hello."
+
+
+ 
+
+Whatever the exec mode, Ncat sets environment variables in the spawned program's environment that describe the connection.
+
+NCAT_REMOTE_ADDR, NCAT_REMOTE_PORT
+
+The IP address and port number of the remote host. In connect mode, it's the target's address; in listen mode, it's the client's address.
+
+NCAT_LOCAL_ADDR, NCAT_LOCAL_PORT
+
+The IP address and port number of the local end of the connection.
+
+NCAT_PROTO
+
+The protocol in use: one of TCP, UDP, and SCTP.
+
+Example 7 shows the output of a Lua program that reads these variables. You can see these environment variables in action by running this
+
+Example 7. Exec environment variables
+
+The contents of the program env.lua:
+
+function env(v) print(string.format("%s %q", v, os.getenv(v))) end env("NCAT_REMOTE_ADDR") env("NCAT_REMOTE_PORT") env("NCAT_LOCAL_ADDR") env("NCAT_LOCAL_PORT") env("NCAT_PROTO")
