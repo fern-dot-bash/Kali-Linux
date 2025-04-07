@@ -1,0 +1,7 @@
+Searchsploit
+
+searchsploit <exploit>
+
+below command is to copy the path to your currently in directory
+
+searchsploit -m <path> 
