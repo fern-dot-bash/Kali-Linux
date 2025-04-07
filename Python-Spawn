@@ -1,0 +1,9 @@
+python3 -c 'import pty;pty.spawn("/bin/bash")' : is an interactive terminal spawned via python
+
+
+
+The following commands can be used to spawn a shell once you have a foot inside.
+
+
+python -c 'import pty; pty.spawn("/bin/bash")' 
+python3 -c 'import pty; pty.spawn("/bin/bash")'
