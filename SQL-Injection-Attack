@@ -1,0 +1,8 @@
+SQL-Injection-Attack
+
+' OR 1='1 evaluates to a constant true, and when successful, returns all rows in the table.
+' AND 0='1 evaluates to a constant false, and when successful, returns no rows.
+
+29
+
+to test if a target is vulnerable to RCE by input bar injection - you can use the command “\” ping <ip>: echo\""
