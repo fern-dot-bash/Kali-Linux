@@ -1,6 +1,6 @@
 RSA-SSH-CHMOD
 
-
+ssh -i <name_of_key_file> <name>@<targetmachine>
 
 The keys need to be read-writable only by you:
 
