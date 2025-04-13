@@ -1,0 +1,6 @@
+Export-PATH
+
+export PATH=/var/tmp:$PATH
+
+then run : echo $PATH 
+- to see the path
