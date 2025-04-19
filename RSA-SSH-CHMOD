@@ -8,3 +8,5 @@ chmod 600 ~/.ssh/id_rsa
 Alternatively, the keys can be only readable by you (this also blocks your write access):
 
 chmod 400 ~/.ssh/id_rsa
+
+chmod +s <path>
