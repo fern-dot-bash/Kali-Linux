@@ -1,0 +1,1 @@
+ffuf -u "http://10.10.57.188/FUZZ" -w <path_for_wordlist>
